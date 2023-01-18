@@ -1,14 +1,16 @@
-import { UserTasks } from "../regform/UserTasks.dao";
-import React, {useState, useContext} from react;
+import { UserTask } from "../form/UserTasks.dao";
+import UserTaskList from "./UserTasksList";
+import React, {useState} from 'react';
+
 
 const Main = () => {
 
-    const UserTasksFromLocalStorage: UserTasks [] = JSON.parse(localStorage.getItem('userTask') as string ) || [];
+    const UserTasksFromLocalStorage: UserTask [] = JSON.parse(localStorage.getItem('userTask') as string ) || [];
    
-    const [userTask, setUserTask] = useState<[]>(UserTasksFromLocalStorage);
+    const [userTask, setUserTask] = useState(UserTasksFromLocalStorage);
     const [isModalOpened, setModalOpened] = useState<boolean>(false);
 
-    const updateUserTaskList = (newTasks: UserTasks) => {
+    const updateUserTaskList = (newTasks: UserTask) => {
         setUserTask([...userTask, newTasks]);
         localStorage.setItem('userTask', JSON.stringify([...userTask, newTasks]));
     }
@@ -16,6 +18,7 @@ const Main = () => {
     const handleOpenModal = () => {
         setModalOpened(true);
     }
+    const closeModal = () => setModalOpened(false);
 
     const handleClearAllList = () => {
         localStorage.removeItem('userTask');
@@ -25,10 +28,20 @@ const Main = () => {
         
     }
 
-    const closeModal = () => setModalOpened(false);
 
     return (
         <div>
+            <UserTaskList
+                tasks={userTask}
+            />
+
+
+            {isModalOpened &&
+                <TaskForm 
+                    updateUserTaskList={updateUserTaskList}  
+                    handleCloseModal={closeModal}
+                />
+            }
 
         </div>
     )

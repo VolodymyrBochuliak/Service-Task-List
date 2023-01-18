@@ -1,5 +1,5 @@
 
-export interface UserTasks {
+export interface UserTask {
     title: string;
     createDate: number;
     timeRange: number[];
