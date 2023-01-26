@@ -49,14 +49,14 @@ const Main = (props: IProps) => {
                 <BookmarkButton
                     className="bookmark"
                     name="Jon Dou"
-                    style={{backgroundColor: 'rgb(225, 129, 165)', left: '35px',}}
-                    directFunction={()=>{console.log("You click on")}}
+                    style={{backgroundColor: 'rgb(225, 129, 165)', left: '38px',}}
+                    directFunction={()=>{console.log("You choose Dou")}}
                     />
                 <BookmarkButton
                     className="bookmark"
-                    name="Jon Dou"
-                    style={{backgroundColor: 'rgb(225, 159, 165)', left: '65px',}}
-                    directFunction={()=>{console.log("You click on")}}
+                    name="Peter Parker"
+                    style={{backgroundColor: 'rgb(225, 159, 165)', left: '70px',}}
+                    directFunction={()=>{console.log("You choose Parker")}}
                 />
             </div>
             {modalOpened &&

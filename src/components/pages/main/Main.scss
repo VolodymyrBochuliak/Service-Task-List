@@ -1,7 +1,7 @@
 
 .page_container {
     width: 80vw;
-    min-height: 400px;
+    min-height: 500px;
     border: 2px solid lightslategray;
     border-radius: 10px;
     position: relative;
@@ -32,14 +32,16 @@
         width: 120px;
         height: 80px;
         padding: 5px;
+        margin-left: 5px;
         position: relative;
-        left: 1160px;
+        // left: 1160px;
+        left: 94%;
         top: -25px;
         transform: rotate(90deg);
         z-index: 1; /////////////////////////////
         
         button{
-            width: 120px;
+            min-width: 150px;
             height: 60px;
             border: 2px solid lightslategray;
             border-top-left-radius: 5px;
@@ -49,23 +51,26 @@
             padding: 10px;
             font-size: 20px;
             position: absolute;
-
+            z-index: 1; /////////////////////////////
+ 
         }
 
     }
+
     .bookmark :hover {
-        transform: translateY(-40px);
+        cursor: pointer;
+        transform: translateY(-30px);
         transition: 0.5s ease;
     }
 
-    // .bookmark ::before  {
-    //     content: '';
-    //     background-color: rgb(209, 35, 35);
-    //     position: absolute;
-    //     width: 20px;
-    //     height: 20px;
-    //     left: 90px;
-    //     top: 20px;
+    .bookmark ::before  {
+        content: '';
+        background-color: rgb(255, 255, 255);
+        position: absolute;
+        width: 120px;
+        height: 10px;
+        left: -2px;
+        top: 58px;
 
-    // }
+    }
 }
