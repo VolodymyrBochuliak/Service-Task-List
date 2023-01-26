@@ -3,8 +3,7 @@ export interface UserTask {
     title: string;
     createDate: number;
     timeRange: number[];
-    type: string;
+    group: string;
     responsiblePerson: string;
-    stage: string;
     progress: number;
 }

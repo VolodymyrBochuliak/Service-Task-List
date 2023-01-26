@@ -1,0 +1,21 @@
+.form {
+    width: 50%;
+    position: absolute;
+    left: 350px;
+    top: 10px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 10px;
+    justify-items: center;
+    background-color: whitesmoke;
+
+    .form_header {
+       display: flex;
+       justify-content: space-around;
+
+       h4 {
+        font-size: 25px;
+       }
+
+    }
+}

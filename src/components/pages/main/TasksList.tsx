@@ -6,12 +6,13 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { UserTask } from '../form/UserTasks.dao';
+import { UserTask } from '../../form/UserTasks.dao';
+import BookmarkButton from '../../shared components/BookmarkButton';
 
 
 
 interface IProps {
-    tasks: UserTask[]
+  tasks: UserTask[]
 }
 
 const UserTaskList = (props: IProps) => {
@@ -20,6 +21,7 @@ const UserTaskList = (props: IProps) => {
 
     if (tasks.length) {
         return (
+          <div>
             <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
               <TableHead>
@@ -29,7 +31,6 @@ const UserTaskList = (props: IProps) => {
                   <TableCell align="right">Time for execution&nbsp;(hours)</TableCell>
                   <TableCell align="right">Group</TableCell>
                   <TableCell align="right">Responsible Person</TableCell>
-                  <TableCell align="right">Stage</TableCell>
                   <TableCell align="right">Progress</TableCell>
                 </TableRow>
               </TableHead>
@@ -44,18 +45,27 @@ const UserTaskList = (props: IProps) => {
                     </TableCell>
                     <TableCell align="right">{task.createDate}</TableCell>
                     <TableCell align="right">{task.timeRange}</TableCell>
-                    <TableCell align="right">{task.type}</TableCell>
+                    <TableCell align="right">{task.group}</TableCell>
                     <TableCell align="right">{task.responsiblePerson}</TableCell>
-                    <TableCell align="right">{task.stage}</TableCell>
                     <TableCell align="right">{task.progress}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
             </Table>
           </TableContainer>
+          </div>
         )                     
     } else {
-        return <div> List is Empty </div>
+        return (
+          <div> 
+            <h3>No available tasks</h3>
+            {/* <BookmarkButton
+                className="bookmark"
+                name="All tasks"
+                directFunction={()=>{console.log("You click on")}}
+            /> */}
+          </div>
+        )
     }
 }
 
