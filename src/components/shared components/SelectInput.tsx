@@ -3,26 +3,25 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 
-const SelectInput = () => {
+interface IProps {
+  arrayOfValues: { value: string; label: string; }[],
+  label: string,
+  onChange: (event: any) => void;
+  defaultValue ? : string,
+  helperText ? : string,
 
-    const currencies = [
-        {
-          value: 'Body works',
-          label: 'Body works',
-        },
-        {
-          value: 'Engine works',
-          label: 'Engine works',
-        },
-        {
-          value: 'Suspention works',
-          label: 'Suspention works',
-        },
-        {
-          value: 'Interior works',
-          label: 'Interior works',
-        },
-      ];
+}
+
+const SelectInput = (props: IProps) => {
+
+  const {
+    arrayOfValues,
+    label,
+    defaultValue,
+    helperText,
+    onChange,
+
+  } = props
 
     return (
     <Box
@@ -35,11 +34,12 @@ const SelectInput = () => {
             <TextField
             id="outlined-select-currency"
             select
-            label="Group"
-            defaultValue="Body works"
-            helperText="Please select group of ..."
+            label={label}
+            defaultValue={defaultValue}
+            helperText={helperText}
+            onChange={onChange}
             >
-            {currencies.map((option) => (
+            {arrayOfValues.map((option) => (
                 <MenuItem key={option.value} value={option.value}>
                 {option.label}
                 </MenuItem>

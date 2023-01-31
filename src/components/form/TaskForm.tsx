@@ -5,6 +5,8 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import SelectInput from "../shared components/SelectInput";
 import '../form/TaskForm.scss';
+import { handleFieldChange } from "./formFunctions";
+import NonLinearSlider from "../shared components/RangedInput";
 
 
 interface IProps {
@@ -50,6 +52,47 @@ const TaskForm = (props: IProps) => {
        })
     }
 
+    const groupOfValues = [
+        {
+          value: 'Body works',
+          label: 'Body works',
+        },
+        {
+          value: 'Engine works',
+          label: 'Engine works',
+        },
+        {
+          value: 'Suspension works',
+          label: 'Suspension works',
+        },
+        {
+          value: 'Interior works',
+          label: 'Interior works',
+        },
+    ];
+    const employeesValue = [
+        {
+          value: 'Jon Dou',
+          label: 'Jon Dou',
+        },
+        {
+          value: 'Peter Parker',
+          label: 'Peter Parker',
+        },
+        {
+          value: 'Aaron Stack',
+          label: 'Aaron Stack',
+        },
+        {
+          value: 'Anne Marie Hoag',
+          label: 'Anne Marie Hoag',
+        },
+        {
+          value: 'Alex Wilder',
+          label: 'Alex Wilder',
+        },
+    ];
+
     return (
         <div className="form">
             <div className="form_header">
@@ -59,7 +102,7 @@ const TaskForm = (props: IProps) => {
                     variant="contained" 
                     color="success"
                     size="small"
-                    onClick={taskAddingDate}
+                    onClick={createTask}
                 >
                     Create new task
                 </Button>
@@ -69,34 +112,44 @@ const TaskForm = (props: IProps) => {
             sx={{'& > :not(style)': {mt: 2, mb: 2,}}}
             noValidate
             autoComplete="off"
-            onSubmit={createTask}
+            // onSubmit={createTask}
         >
             <TextField 
                 sx={{'& > :not(style)': { width: '35ch' }}}
                 id="outlined-basic" 
                 label="Enter task title" 
                 variant="outlined" 
+                onChange={handleFieldChange(setTitle)}
             />
-            <TextField
+            {/* <TextField
                 sx={{'& > :not(style)': {ml: 5, width: '15ch' }}}
                 id="outlined-number"
-                label="Number"
+                label="Time for execution"
                 type="number"
                 InputLabelProps={{ shrink: true, }}
-                defaultValue='0'
-            />
+                // onChange={handleFieldChange()}
+            /> */}
             <TextField
                 id="date"
                 label="Ending date"
                 type="date"
-                // defaultValue=""
-                // defaultValue={{date.getFullYear} '-' {date.getMonth} '-' `${date.getDay} + 15`} //////////////////////////////////////
                 sx={{ ml: 5, width: 150 }}
                 InputLabelProps={{ shrink: true, }}
             />
 
+            <NonLinearSlider/>
+
             <SelectInput
-            
+                arrayOfValues={groupOfValues}
+                label="Group"
+                helperText="Please select group of ..."
+                onChange={handleFieldChange(setTitle)}
+            />
+            <SelectInput
+                arrayOfValues={employeesValue}
+                label="Responsible person"
+                onChange={handleFieldChange(setTitle)}
+                
             />
         </Box>
            

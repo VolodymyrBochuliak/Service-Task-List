@@ -28,9 +28,9 @@ const UserTaskList = (props: IProps) => {
                 <TableRow>
                   <TableCell>Title</TableCell>
                   <TableCell align="right">Date</TableCell>
-                  <TableCell align="right">Time for execution&nbsp;(hours)</TableCell>
+                  <TableCell align="right">Time for execution (hours)</TableCell>
                   <TableCell align="right">Group</TableCell>
-                  <TableCell align="right">Responsible Person</TableCell>
+                  <TableCell align="right">Responsible person</TableCell>
                   <TableCell align="right">Progress</TableCell>
                 </TableRow>
               </TableHead>
