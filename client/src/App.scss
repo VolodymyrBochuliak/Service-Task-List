@@ -1,0 +1,19 @@
+
+.header {
+  background-color: #c9af89;
+  min-height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  
+  .header__inner{
+    width: 80%;
+    // margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    
+  }
+}
+

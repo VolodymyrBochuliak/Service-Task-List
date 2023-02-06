@@ -28,19 +28,15 @@ const TaskForm = (props: IProps) => {
     const [responsiblePerson, setResponsiblePerson] = useState('');
     const [progress, setProgress] = useState(0);
 
-    let date = new Date();
-    let currentDate = date.getDate()
-
-    const taskAddingDate = () :void => {
-       setCreateDate(currentDate);
-    //    console.log(createDate)
-        // console.log( `${date.getFullYear()} - ${date.getUTCMonth()} - ${date.getDate() + 15}`)
     
-    }
-
     const createTask = (event: { preventDefault: () => void; }): void => {
         event.preventDefault();
 
+        // let date = new Date();
+        // let currentDate = date.getDate()
+        // setCreateDate(currentDate);
+        // console.log(createDate)
+        // console.log(currentDate)
 
         props.updateUserTaskList({
             title: title,
@@ -50,6 +46,8 @@ const TaskForm = (props: IProps) => {
             responsiblePerson: responsiblePerson,
             progress: progress
        })
+
+       
     }
 
     const groupOfValues = [
@@ -112,7 +110,6 @@ const TaskForm = (props: IProps) => {
             sx={{'& > :not(style)': {mt: 2, mb: 2,}}}
             noValidate
             autoComplete="off"
-            // onSubmit={createTask}
         >
             <TextField 
                 sx={{'& > :not(style)': { width: '35ch' }}}
@@ -143,12 +140,12 @@ const TaskForm = (props: IProps) => {
                 arrayOfValues={groupOfValues}
                 label="Group"
                 helperText="Please select group of ..."
-                onChange={handleFieldChange(setTitle)}
+                onChange={handleFieldChange(setType)}
             />
             <SelectInput
                 arrayOfValues={employeesValue}
                 label="Responsible person"
-                onChange={handleFieldChange(setTitle)}
+                onChange={handleFieldChange(setResponsiblePerson)}
                 
             />
         </Box>

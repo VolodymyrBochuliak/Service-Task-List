@@ -8,6 +8,8 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { UserTask } from '../../form/UserTasks.dao';
 import BookmarkButton from '../../shared components/BookmarkButton';
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 
 
@@ -48,6 +50,13 @@ const UserTaskList = (props: IProps) => {
                     <TableCell align="right">{task.group}</TableCell>
                     <TableCell align="right">{task.responsiblePerson}</TableCell>
                     <TableCell align="right">{task.progress}</TableCell>
+                    <Button 
+                      variant="outlined"
+                      onClick={() => {tasks.filter((task) => {})}} 
+                      startIcon={<DeleteIcon />}
+                    >
+                      Delete
+                    </Button>
                   </TableRow>
                 ))}
               </TableBody>

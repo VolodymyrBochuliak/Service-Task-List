@@ -24,11 +24,11 @@ const Header = (props: IProps) => {
                 <div>
                     <Stack direction="row" spacing={2}>
                         <Button
-                            variant="outlined"
+                            variant="contained"
                             onClick={handleOpenModal}
                         >Open tasks form</Button>
                         <Button 
-                            variant="outlined"
+                            variant="contained"
                             color="error"
                             onClick={closeModal}
                         >Close form</Button>
